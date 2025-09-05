@@ -5,12 +5,11 @@ ECHO ===========================
 
 REM Update the repository
 
-git remote set-url origin https://bot:glpat-0Nb77FL1fKhopzF9EtmugG86MQp1Omh3ejlkCw.01.121wnhdd8@gitlab.com/bmtuan/youtube-automation-z-application
 git config credential.helper store
 git gc
 git stash save "Stash"
 git checkout "main"
-git pull --no-rebase
+git pull --no-rebase https://gitlab.com/bmtuan/youtube-automation-z-application.git
 
 REM Activate the virtual environment
 SET VENV_PATH=%~dp0venv
