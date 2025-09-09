@@ -1,26 +1,14 @@
 @ECHO OFF
 ECHO ===========================
-ECHO EXECUTE FORCE PULL UPDATE
+ECHO EXECUTE UPDATE PROGRAM...
 ECHO ===========================
 
-REM Navigate to script directory
-CD /D "%~dp0"
-
-REM Set up Git to store credentials
+REM Update the repository
+git remote set-url origin https://gitlab.com/bmtuan/youtube-automation-z-application.git
 git config credential.helper store
-
-REM Clean up and stash any changes
 git gc
-git reset --hard
-git clean -fd
-git stash save "Backup before force pull"
-
-REM Force switch to main branch and reset to origin
-git checkout main
-git fetch origin
-git reset --hard origin/main
-
-REM Pull latest changes
+git stash save "Stash"
+git checkout "main"
 git pull --no-rebase
 
 REM Activate the virtual environment
@@ -33,11 +21,11 @@ IF EXIST "%VENV_PATH%" (
     EXIT /B 1
 )
 
-REM Install requirements
+REM Install the requirements
 pip install -U -r requirements.txt
 
 ECHO ===========================
-ECHO UPDATE COMPLETED!
+ECHO END UPDATE!
 ECHO ===========================
 
 timeout /t 3
