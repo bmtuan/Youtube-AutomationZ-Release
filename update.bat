@@ -3,6 +3,12 @@ ECHO ===========================
 ECHO EXECUTE UPDATE PROGRAM...
 ECHO ===========================
 
+REM Remove stale git lock if exists
+IF EXIST ".git\index.lock" (
+    ECHO Found stale Git lock. Removing...
+    DEL /F /Q ".git\index.lock"
+)
+
 REM Update the repository
 git remote set-url origin https://gitlab.com/bmtuan/youtube-automation-z-application.git
 git config credential.helper store
