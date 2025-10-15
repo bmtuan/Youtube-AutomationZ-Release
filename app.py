@@ -15,5 +15,5 @@ ui.run(
     title="Automation Z",
     favicon="https://cdn-icons-png.flaticon.com/512/8188/8188078.png",
     port=8081,
-    reconnect_timeout=30,
+    reconnect_timeout=60,
 )
