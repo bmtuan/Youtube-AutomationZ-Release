@@ -2,6 +2,7 @@ from .ads import *
 from .audio import *
 from .audio_edit import *
 from .auth import *
+from .combined_small import *
 from .copyright_dispute import *
 from .loop import *
 from .merge import *
